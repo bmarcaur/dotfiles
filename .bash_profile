@@ -17,17 +17,19 @@ if [ -f ~/.bash_palantir ]; then
     source ~/.bash_palantir
 fi
 
+export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH="$HOME/.ldap_pick:/opt/homebrew/bin:$PATH"
+
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export EDITOR='subl'
 
 export JAVA_6=`/usr/libexec/java_home -v '1.6*'`
 export JAVA_7=`/usr/libexec/java_home -v '1.7*'`
 export JAVA_8=`/usr/libexec/java_home -v '1.8*'`
-export JAVA_HOME=$JAVA_8
+export JAVA_HOME=$JAVA_7
 
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv"

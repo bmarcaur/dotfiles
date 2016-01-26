@@ -1,5 +1,7 @@
 # Install brew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+sudo mkdir /opt
+sudo chown -R `whoami` /opt
+git clone https://github.com/homebrew/homebrew.git /opt/homebrew
 
 # Make sure it is up to date
 brew update
