@@ -6,3 +6,5 @@
 .DS_Store
 *.last-run
 *.cache
+
+sublime-settings/Color Highlighter/themes/*
