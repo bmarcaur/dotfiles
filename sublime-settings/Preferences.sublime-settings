@@ -5,9 +5,12 @@
 		".classpath",
 		".project",
 		"*.class",
-		".DS_Store"
+		".DS_Store",
+		"*.jar",
+		"*.iml",
+		"*.eml"
 	],
-	"find_selected_text": true,
+	"find_selected_text": false,
 	"folder_exclude_patterns":
 	[
 		".git",
@@ -25,6 +28,7 @@
 	"font_size": 16.0,
 	"ignored_packages":
 	[
+		"CoffeeScript"
 	],
 	"scroll_past_end": false,
 	"sort_keys": true,

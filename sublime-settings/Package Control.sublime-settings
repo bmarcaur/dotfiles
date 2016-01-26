@@ -1,6 +1,8 @@
 {
+	"bootstrapped": true,
 	"in_process_packages":
 	[
+		"CoffeeScript"
 	],
 	"installed_packages":
 	[
@@ -9,11 +11,15 @@
 		"Better CoffeeScript",
 		"CoffeeScript",
 		"Color Highlighter",
+		"Diffy",
+		"Git",
 		"Gitignore",
 		"Handlebars",
+		"Indent XML",
 		"JSON Reindent",
 		"LESS",
 		"Package Control",
+		"Pretty JSON",
 		"Solarized Color Scheme",
 		"Theme - Sodarized"
 	]
