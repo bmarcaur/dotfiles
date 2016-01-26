@@ -1,130 +1,90 @@
-""" Vim Configuration
-set nocompatible " Behave like vim, not vi
+set nocompatible
 
 filetype off
 
 set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#rc()
+call vundle#begin()
 
-" let Vundle manage Vundle, required.
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/Vundle.vim'
 
-" Plugins:
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/powerline'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/syntastic'
-Bundle 'sjl/vitality.vim'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-Bundle 'motus/pig.vim'
+" --- Making Vim Look Good ---
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
 
-filetype plugin on " Enable filetype plugins
-filetype indent on " Enable filetype specific indent rules
-syntax on " Enable syntax highlighting
+" --- Vim as a programmer's text editor
+Plugin 'scrooloose/nerdtree'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'scrooloose/syntastic'
+Plugin 'kien/ctrlp.vim'
 
-"" Watches for changes in vim configs and automatically refreshes your .vimrc
-augroup myvimrc
-  au!
-  au BufWritePost .vimrc,_vimrc,vimrc,.gvimrc,_gvimrc,gvimrc so $MYVIMRC | if has('gui_running') | so $MYGVIMRC | endif
-augroup END
+call vundle#end()
 
-"" Sounds
-set noerrorbells visualbell t_vb=
-if has('autocmd')
-  autocmd GUIEnter * set visualbell t_vb=
-endif
+filetype plugin indent on
 
-"" Buffer behaviour
-set hidden " Allow changed buffers to be in back ground
-
-"" System copy / paste
-set clipboard=unnamed
-
-"" Expected backspace behaviour
+" --- General Settings ---
 set backspace=indent,eol,start
+set ruler
+set number
+set showcmd
+set incsearch
+set hlsearch
 
-"" Lines
-set number " Display line numbers
-set nowrap " turn off line wrapping
+syntax on
 
-"" Indentation
-set shiftwidth=2 " Number of spaces for each tab in autoindent (<< and >>)
-set softtabstop=2 " Number of columns inserted by tab key
-set expandtab " Use spaces instead of tabs
-set tabstop=2 " Number of spaces for each tab.  Affect how text is displayed
-set autoindent " Copy indent from current line when starting a new line
-set smarttab " Set tab width to shiftwidth on start of line tab insert
+set mouse=a
 
-"" Searching
-set incsearch " Find matches while still typeing
-set hlsearch " Highlight matches by default
-set ignorecase " Ignore case on searches...
-set smartcase " unless searching for a capital
+" size of a hard tabstop
+set tabstop=4
 
-"" Comand Line
-set wildmode=list:longest " Complete longest common string, then list (similar to bash)
-set wildmenu
-set wildignore=*.o,*.obj,*.class
+" size of an "indent"
+set shiftwidth=4
 
-"" Remappings
-" yank from cursor to EOL with Y, consistent with C and D
-noremap Y y$
-" Toggle search highlighting
-nnoremap <Leader>hs :nohlsearch<CR>
+" --- Plugin Specific Settings ---
 
-"" Movement
-set scrolloff=5 " set vertical scroll space around cursor
-set sidescrolloff=7 " set horizontal scroll space around cursor
-set sidescroll=1 " scroll horizontally by 1 column at a time
-set virtualedit=block " Let cursor move past last char in visual block mode
-set showmatch " Briefly jump to a parent when it's balanced...
-set matchtime=2 " for only .2 seconds
-set nostartofline " Don't jump to start of line with movements
-
-"" Files
-set autoread " Automatically read changed files
-au BufReadCmd   *.jar,*.war,*.ear,*.sar,*.rar        call zip#Browse(expand("<amatch>"))
-
-"" Theme
+" --- altercation/vim-colors-solarized ---
 set background=dark
+
 colorscheme solarized
-set guifont=Inconsolata\ for\ Powerline:h16 "Font
-set t_Co=256 " Tell terminal to use 256 colors
-set title " Turn on title bar support
 
-"" Mouse settings
-set mouse=a " Enable mouse
-set ttymouse=xterm2 " Use mouse scrolling in terminal window
+" --- bling/vim-airline ---
+" Always show statusbar
+set laststatus=2
 
-""" Plugin Configuration
+" Show PASTE if in paste mode
+let g:airline_powerline_fonts = 1
 
-"" Powerline
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
-set laststatus=2   " Always show the statusline
-set encoding=utf-8 " Necessary to show Unicode glyphs
-set noshowmode
+" Show PASTE if in paste mode
+let g:airline_detect_paste=1
 
-"" Tagbar
-nmap <Leader>t :TagbarToggle<CR>
+" Show airline for tabs too
+let g:airline#extensions#tabline#enabled = 1
 
-""" Autocommands
-if has("autocmd")
-  augroup vimrcEx
-  "jump to last cursor position when opening a file
-  ""dont do it when writing a commit log entry
-  autocmd BufReadPost * call SetCursorPosition()
-  function! SetCursorPosition()
-    if &filetype !~ 'svn\|commit\c'
-      if line("'\"") > 0 && line("'\"") <= line("$")
-        exe "normal! g`\""
-        normal! zz
-      endif
-    end
-  endfunction
+" --- jistr/vim-nerdtree-tabs ---
+" Open and close nerdtree tabs with \t
+nmap <silent> <leader>t :NERDTreeTabsToggle<CR>
 
-  augroup END
-endif
+" To have Nerdtree always open on startup
+let g:nerdtree_tabs_open_on_console_startup = 1
+
+" --- scrooloose/syntastic ---
+let g:syntastic_error_symbol = '✘'
+let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+	au!
+	au FileType tex let b:syntastic_mode = "passive"
+augroup end
+
+
+" --- kien/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup --hidden
+      \ --ignore .git
+      \ --ignore .svn
+      \ --ignore .hg
+      \ --ignore .DS_Store
+      \ --ignore "**/*.pyc"
+      \ -g ""'
+
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
