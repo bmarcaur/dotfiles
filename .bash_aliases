@@ -9,9 +9,6 @@ alias gitd='git df'
 alias gitc='git ci -m'
 alias gw='./gradlew'
 
-alias lilac='ldap_pick lilac'
-alias garnet='ldap_pick garnet'
-
 greprails() { grep $1 -r --exclude-dir="coverage" --exclude-dir="tmp" $2; }
 far() { find $1 -type f -name '*' -exec sed -i '' s/$2/$3/g {} + ; }
 gitme() { git $1 --author=$(git config --get user.email); }
