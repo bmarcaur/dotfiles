@@ -10,7 +10,7 @@
 		"*.iml",
 		"*.eml"
 	],
-	"find_selected_text": false,
+	"find_selected_text": true,
 	"folder_exclude_patterns":
 	[
 		".git",
@@ -25,10 +25,11 @@
 		"application/log"
 	],
 	"font_face": "Inconsolata for Powerline",
-	"font_size": 16.0,
+	"font_size": 17.0,
 	"ignored_packages":
 	[
-		"CoffeeScript"
+		"CoffeeScript",
+		"Vintage"
 	],
 	"scroll_past_end": false,
 	"sort_keys": true,
