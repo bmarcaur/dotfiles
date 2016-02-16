@@ -7,4 +7,6 @@
 *.last-run
 *.cache
 
+.bash_palantir
+
 sublime-settings/Color Highlighter/themes/*
