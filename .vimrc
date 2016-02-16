@@ -16,6 +16,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
+Plugin 'Align'
+Plugin 'airblade/vim-gitgutter'
 
 call vundle#end()
 
@@ -30,14 +32,24 @@ set incsearch
 set hlsearch
 
 syntax on
-
 set mouse=a
 
-" size of a hard tabstop
-set tabstop=4
 
-" size of an "indent"
-set shiftwidth=4
+" --- Personal Settings ---
+" associate *.map with ruby filetype
+au BufRead,BufNewFile *.map set filetype=ruby
+
+set clipboard=unnamed
+set scrolljump=10
+set tabstop=2
+set shiftwidth=2
+set cursorline
+set cursorcolumn
+set relativenumber
+set nowrap
+set re=1
+
+autocmd FileType ruby setlocal nocursorline nocursorcolumn norelativenumber
 
 " --- Plugin Specific Settings ---
 
