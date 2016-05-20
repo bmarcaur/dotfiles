@@ -18,6 +18,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'Align'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 
@@ -47,7 +48,6 @@ set cursorline
 set cursorcolumn
 set relativenumber
 set nowrap
-set re=1
 
 autocmd FileType ruby setlocal nocursorline nocursorcolumn norelativenumber
 

@@ -8,9 +8,13 @@ brew update
 
 # Install autocomplete
 brew install bash-completion
+brew install bash-git-prompt
 
 # Install tree
 brew install tree
+
+# Install openssl
+brew install openssl
 
 # Install Python
 brew install python
@@ -18,6 +22,7 @@ brew install python
 # Install GNU Tools
 brew install gnu-tar
 brew install gnu-sed
+brew install htop
 
 # Install vim
 brew install vim
@@ -30,8 +35,8 @@ brew install rbenv
 brew install ruby-build
 
 # Install Ruby
-rbenv install 2.0.0-p247
-rbenv global 2.0.0-p247
+rbenv install 2.3.1
+rbenv global 2.3.1
 
 # Install some gems
 rbenv rehash

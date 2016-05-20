@@ -24,12 +24,16 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
 fi
 
+if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
+    source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
 export EDITOR='subl'
 
 export JAVA_6=`/usr/libexec/java_home -v '1.6*'`
 export JAVA_7=`/usr/libexec/java_home -v '1.7*'`
 export JAVA_8=`/usr/libexec/java_home -v '1.8*'`
-export JAVA_HOME=$JAVA_7
+export JAVA_HOME=$JAVA_8
 
 # rbenv
 export RBENV_ROOT="$HOME/.rbenv"
