@@ -29,6 +29,7 @@
 	"ignored_packages":
 	[
 		"CoffeeScript",
+		"RestructuredText",
 		"Vintage"
 	],
 	"scroll_past_end": false,
