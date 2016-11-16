@@ -17,15 +17,20 @@ if [ -f ~/.bash_palantir ]; then
     source ~/.bash_palantir
 fi
 
+# include .bash_secret if it exists
+if [ -f ~/.bash_secret ]; then
+    source ~/.bash_secret
+fi
+
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
 export PATH="$HOME/.ldap_pick:/opt/homebrew/bin:$PATH"
 
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-    . $(brew --prefix)/etc/bash_completion
-fi
-
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     source "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh"
+fi
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+		. $(brew --prefix)/etc/bash_completion
 fi
 
 export EDITOR='subl'

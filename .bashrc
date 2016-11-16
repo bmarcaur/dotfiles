@@ -26,8 +26,6 @@ configure_history() {
 
 save_history() {
   history -a
-  history -c
-  history -r
   history 1 | cut -c 8- >> $HOME/.history_repo/history.$(date +%Y%m)
 }
 
