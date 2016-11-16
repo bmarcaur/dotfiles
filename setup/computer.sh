@@ -23,6 +23,21 @@ brew install python
 brew install gnu-tar
 brew install gnu-sed
 brew install htop
+brew install git-lfs
+brew install gpg-agent
+brew install the_silver_searcher
+brew install p7zip
+
+# Install node
+brew install node5
+
+# Install common cask tools
+brew cask install java
+brew cask install java6
+brew cask install java7
+brew cask install intellij-idea-ce
+brew cask install virtualbox
+brew cask install visual-studio-code
 
 # Install vim
 brew install vim
@@ -35,13 +50,8 @@ brew install rbenv
 brew install ruby-build
 
 # Install Ruby
-rbenv install 2.3.1
-rbenv global 2.3.1
-
-# Install some gems
-rbenv rehash
-gem install rails
-rbenv rehash
+rbenv install 2.3.2
+rbenv global 2.3.2
 
 # Symlink sublime for editor
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
@@ -49,6 +59,11 @@ ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local
 # Make the commandhistory repo
 mkdir -p ~/.history_repo
 
+# set the default screenshot location
+defaults write com.apple.screencapture location ~/Documents/Screenshots
+
+# Disable gatekeeper
+sudo spctl --master-disable
+
 # Unpack Dotfiles
 ./setup/dotfiles.sh
-
