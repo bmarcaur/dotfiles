@@ -25,11 +25,10 @@
 		"application/log"
 	],
 	"font_face": "Inconsolata for Powerline",
-	"font_size": 16.0,
+	"font_size": 17.0,
 	"ignored_packages":
 	[
 		"CoffeeScript",
-		"RestructuredText",
 		"Vintage"
 	],
 	"scroll_past_end": false,
