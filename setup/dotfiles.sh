@@ -2,6 +2,21 @@
 link() {
 	file=$1
   current=`pwd`
+
+  if [[ -e $HOME/$file ]]
+  then
+    read -p "Delete existing dotfile, $file?" -n 1 -r
+    echo    # (optional) move to a new line
+    if [[ $REPLY =~ ^[Yy]$ ]]
+    then
+      echo "Deleting $file..."
+      rm $HOME/$file
+    else
+      echo "Skipping $file"
+      return
+    fi
+  fi
+
   echo "Linking file($file) from $current to $HOME"
 	ln -s $current/$file $HOME/$file
 }
