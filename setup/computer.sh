@@ -4,6 +4,8 @@ sudo chown -R `whoami` /opt
 git clone https://github.com/homebrew/homebrew.git /opt/homebrew
 
 # Make sure it is up to date
+brew tap homebrew/versions
+brew tap caskroom/cask
 brew update
 
 # Install autocomplete
@@ -25,11 +27,12 @@ brew install gnu-sed
 brew install htop
 brew install git-lfs
 brew install gpg-agent
-brew install the_silver_searcher
+brew install stow
+brew install ripgrep
 brew install p7zip
 
 # Install node
-brew install node5
+brew install homebrew/versions/node5
 
 # Install common cask tools
 brew cask install java
@@ -38,6 +41,9 @@ brew cask install java7
 brew cask install intellij-idea-ce
 brew cask install virtualbox
 brew cask install visual-studio-code
+brew cask install docker
+brew cask install spectacle
+brew cask install spotify
 
 # Install vim
 brew install vim
@@ -55,6 +61,7 @@ rbenv global 2.3.2
 
 # Symlink sublime for editor
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/vscode
 
 # Make the commandhistory repo
 mkdir -p ~/.history_repo
