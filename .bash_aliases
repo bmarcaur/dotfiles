@@ -8,6 +8,9 @@ alias gita='git add -A :/'
 alias gitd='git df'
 alias gitc='git ci -m'
 alias gw='./gradlew'
+alias git-clean-iws='git clean -xdf --exclude=“*.iws”'
+
+alias notes='code /Volumes/git/personal/notes'
 
 greprails() { grep $1 -r --exclude-dir="coverage" --exclude-dir="tmp" $2; }
 far() { find $1 -type f -name '*' -exec sed -i '' s/$2/$3/g {} + ; }

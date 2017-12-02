@@ -29,6 +29,18 @@ save_history() {
   history 1 | cut -c 8- >> $HOME/.history_repo/history.$(date +%Y%m)
 }
 
+save_iws() {
+	for iwsFile in *.iws; do
+    [ -f "$iwsFile" ] || break
+    cat $iwsFile > $HOME/.iws_repo/$iwsFile.$(date +%Y%m%d%H)
+	done
+}
+
+save_content() {
+	save_history
+	save_iws
+}
+
 configure_prompt() {
 	export GIT_PROMPT_THEME=Solarized
 	export GIT_PROMPT_SHOW_UPSTREAM=1
@@ -44,7 +56,7 @@ configure_history
 # Load the prompt configuration
 configure_prompt
 
-export PROMPT_COMMAND=save_history
+export PROMPT_COMMAND=save_content
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
