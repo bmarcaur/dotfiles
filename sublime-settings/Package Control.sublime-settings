@@ -1,28 +1,5 @@
 {
-	"bootstrapped": true,
 	"in_process_packages":
 	[
-	],
-	"installed_packages":
-	[
-		"Alignment",
-		"Apache Pig",
-		"Better CoffeeScript",
-		"Color Highlighter",
-		"Diffy",
-		"Git",
-		"GitGutter",
-		"Gitignore",
-		"Handlebars",
-		"Indent XML",
-		"JSON Reindent",
-		"LESS",
-		"OmniMarkupPreviewer",
-		"Package Control",
-		"Pretty JSON",
-		"RestructuredText Improved",
-		"Solarized Color Scheme",
-		"Theme - Sodarized",
-		"TypeScript"
 	]
 }

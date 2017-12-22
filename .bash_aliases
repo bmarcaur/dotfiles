@@ -17,6 +17,30 @@ far() { find $1 -type f -name '*' -exec sed -i '' s/$2/$3/g {} + ; }
 gitme() { git $1 --author=$(git config --get user.email); }
 find_port() { lsof -i tcp:$1; }
 
+notify() {
+  cmd="$*"
+  eval $cmd
+  ret=$?
+
+  if [[ ${#cmd} -gt 140 ]]; then
+    cmd=${cmd:0:100}...${cmd: -40}
+  fi
+
+  if [[ `uname -s` == Darwin ]]; then
+    if [ $ret == 0 ]; then
+      osascript -e "display notification \"$cmd\" with title \"Command finished\""
+    else
+      osascript -e "display notification \"$cmd\" with title \"Command failed with status $ret\""
+    fi
+  else
+    if [ $ret == 0 ]; then
+      notify-send -i dialog-information "Command finished" "$cmd"
+    else
+      notify-send -i dialog-warning "Command failed with status $ret" "$cmd"
+    fi
+  fi
+}
+
 git-size() {
   # Shows you the largest objects in your repo's pack file.
   # Written for osx.

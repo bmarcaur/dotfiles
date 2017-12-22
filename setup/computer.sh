@@ -30,6 +30,7 @@ brew install gpg-agent
 brew install stow
 brew install ripgrep
 brew install p7zip
+brew install jq
 
 # Install node
 brew install homebrew/versions/node5

@@ -1,42 +1,8 @@
 {
-	"color_scheme": "Packages/Solarized Color Scheme/Solarized (dark).tmTheme",
-	"file_exclude_patterns":
-	[
-		".classpath",
-		".project",
-		"*.class",
-		".DS_Store",
-		"*.jar",
-		"*.iml",
-		"*.eml"
-	],
-	"find_selected_text": true,
-	"folder_exclude_patterns":
-	[
-		".git",
-		".ecbuild",
-		"ecbuild",
-		".settings",
-		".gradle",
-		"build",
-		".bundle",
-		".idea",
-		"compiler_cache",
-		"application/log"
-	],
-	"font_face": "Inconsolata for Powerline",
-	"font_size": 16.0,
 	"ignored_packages":
 	[
 		"CoffeeScript",
 		"RestructuredText",
 		"Vintage"
-	],
-	"scroll_past_end": false,
-	"sort_keys": true,
-	"tab_size": 2,
-	"theme": "Sodarized Dark.sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true,
-	"word_wrap": "false"
+	]
 }
