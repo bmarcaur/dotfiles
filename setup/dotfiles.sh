@@ -29,14 +29,14 @@ do
 	link $file
 done
 
-# Ensure the .vim folder exists
-mkdir $HOME/.vim
+# Ensure the nvim folder exists
+mkdir -p $HOME/.config/nvim
 
-# Symlink vim folder
+# Symlink neovim folder
 current=`pwd`
-for vim_folder in `ls $current/.vim`
+for nvim_folder in `ls $current/.config/nvim`
 do
-  link $vim_folder
+  link $nvim_folder
 done
 
 # Setup sublime user preferences

@@ -16,33 +16,35 @@
   # List git aliases
   la = "!git config -l | grep alias | cut -c 7-"
   # List date, user
-  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=relative
-  # List short date, user
-  lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=short
-  le = log --oneline --decorate
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=short
+  # List message, user, files
   ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)(%cr)%Creset" --decorate --numstat
-  lnc = log --pretty=format:"%h\\ %s\\ [%cn]"
+  # List message, user
   ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)(%cr)%Creset" --decorate
   st = status
 	g = grep --break --heading --line-number
+  # Preserve iws files when cleaning out a repo for build purposes
+  cleanrepo = clean -Xf --e *.iws
+	commend = commit --amend --no-edit
 [color]
   branch = auto
   diff = auto
   interactive = auto
   status = auto
 [core]
-  editor = code --wait
+  editor = nvim
   pager = less -r
-	excludesfile = /Users/bmarcaurele/.gitignore
+	excludesfile = /Users/bmarcaurele/.gitignore_global
+	commitGraph = true
 [push]
   default = current
 [user]
-  name = Brandon Marc-Aurele
-  email = bmarcaurele@palantir.com
+	name = Brandon Marc-Aurele
+	email = bmarcaurele@palantir.com
 [github]
   user = bmarcaur
 [rerere]
-	enabled = false
+	enabled = true
 [merge]
 	conflictstyle = diff3
 [grep]
@@ -54,8 +56,10 @@
 	required = true
 	process = git-lfs filter-process
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/bmarcaurele/Library/Caches/com.torusknot.SourceTreeNotMAS/org.sparkle-project.Sparkle/SourceTree 169/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+[commit]
+	template = /Users/bmarcaurele/.stCommitMsg

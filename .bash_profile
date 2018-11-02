@@ -33,7 +33,7 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
 
-export EDITOR='subl'
+export EDITOR='nvim'
 
 export JAVA_1_6_HOME=`/usr/libexec/java_home -v '1.6*'`
 export JAVA_1_7_HOME=`/usr/libexec/java_home -v '1.7*'`

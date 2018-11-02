@@ -8,14 +8,23 @@ alias gita='git add -A :/'
 alias gitd='git df'
 alias gitc='git ci -m'
 alias gw='./gradlew'
-alias git-clean-iws='git clean -xdf --exclude=“*.iws”'
 
-alias notes='code /Volumes/git/personal/notes'
+alias vim='nvim'
 
-greprails() { grep $1 -r --exclude-dir="coverage" --exclude-dir="tmp" $2; }
-far() { find $1 -type f -name '*' -exec sed -i '' s/$2/$3/g {} + ; }
-gitme() { git $1 --author=$(git config --get user.email); }
-find_port() { lsof -i tcp:$1; }
+# Execute a git command scoped to "me"
+gitme() {
+  git $1 --author=$(git config --get user.email)
+}
+
+find_port() {
+  lsof -i tcp:$1
+}
+
+generate_ssl() {
+  [ -z "$1" ] && echo "No host supplied.Usage generate_ssl host port." && kill -INT $$;
+  [ -z "$2" ] && echo "No port supplied. Usage generate_ssl host port." && kill -INT $$;
+  echo "openssl s_client -showcerts -connect $1:$2 </dev/null 2>/dev/null | openssl x509 -outform PEM";
+}
 
 notify() {
   cmd="$*"
@@ -76,4 +85,20 @@ git-size() {
 
   echo -e $output | column -t -s ', '
 
+}
+
+slow-network() {
+  HOST_NAME=$1
+  RATE=$2
+  LATENCY=$3
+
+  sudo dnctl pipe 1 config bw $RATE delay $LATENCY
+  echo "dummynet out proto tcp from any to $HOST_NAME pipe 1" | sudo pfctl -f -
+  sudo pfctl -e
+}
+
+resume-network() {
+  sudo pfctl -f /etc/pf.conf
+  sudo dnctl -q flush
+  sudo pfctl -d
 }

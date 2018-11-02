@@ -29,40 +29,29 @@ brew install git-lfs
 brew install gpg-agent
 brew install stow
 brew install ripgrep
+brew install fd
 brew install p7zip
 brew install jq
 
 # Install node
-brew install homebrew/versions/node5
+brew install node@8
 
 # Install common cask tools
 brew cask install java
 brew cask install java6
 brew cask install java7
-brew cask install intellij-idea-ce
-brew cask install virtualbox
-brew cask install visual-studio-code
+brew cask install java8
 brew cask install docker
 brew cask install spectacle
-brew cask install spotify
 
-# Install vim
-brew install vim
-git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+# Install nvim
+brew install neovim
+git clone https://github.com/gmarik/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim
 git clone git@github.com:Lokaltog/powerline-fonts.git
-vim +PluginInstall +qall
-
-# Install rbenv
-brew install rbenv
-brew install ruby-build
-
-# Install Ruby
-rbenv install 2.3.2
-rbenv global 2.3.2
+nvim +PluginInstall +qall
 
 # Symlink sublime for editor
 ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
-ln -s /Applications/Visual\ Studio\ Code.app/Contents/Resources/app/bin/code /usr/local/bin/vscode
 
 # Make the commandhistory repo
 mkdir -p ~/.history_repo
@@ -73,5 +62,6 @@ defaults write com.apple.screencapture location ~/Documents/Screenshots
 # Disable gatekeeper
 sudo spctl --master-disable
 
-# Unpack Dotfiles
-./setup/dotfiles.sh
+# Breakout further installation
+echo "For ruby development setup run: ./setup/ruby.sh"
+echo "To begin installing your dotfiles run: ./setup/dotfiles.sh"
