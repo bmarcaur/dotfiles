@@ -1,0 +1,23 @@
+#!/bin/bash
+set -Eeo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+# Example Required ARG
+USAGE="Usage: encode-vhs-movies EXT INPUTDIR OUTPUTDIR"
+
+[ -z "$1" ] && echo "No extension provided. $USAGE" && kill -INT $$;
+[ -z "$2" ] && echo "No input dir provided. $USAGE" && kill -INT $$;
+[ -z "$3" ] && echo "No output dir provided. $USAGE" && kill -INT $$;
+
+# Disallow unset variables after checking for expected arguments
+set -u
+
+EXT=$1
+INPUT=$2
+OUTPUT=$3
+
+for filename in "$INPUT"/*."$EXT"; do
+  filename_only="${filename##*/}"
+  ffmpeg -i "$filename" -vf "yadif=1:1,hqdn3d=3,format=yuv420p" -crf 23 -preset medium -c:a aac -movflags +faststart "$OUTPUT/${filename_only%????}.mp4"
+done
