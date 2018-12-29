@@ -7,7 +7,7 @@
 *.last-run
 *.cache
 
-.bash_palantir
+.bash_work
 
 sublime-settings/Color Highlighter/themes/*
 sublime-settings/Package Control.merged-ca-bundle

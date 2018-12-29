@@ -1,3 +1,8 @@
+#!/bin/bash
+set -Eeuo pipefail
+
+trap "echo ERR trap fired!" ERR
+
 # Install rbenv
 brew install rbenv
 brew install ruby-build

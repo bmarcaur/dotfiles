@@ -1,0 +1,13 @@
+#!/bin/bash
+set -Eeo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+USAGE="Usage: port-find PORT"
+
+[ -z "$1" ] && echo "No port provided. $USAGE" && kill -INT $$;
+
+# Disallow unset variables after checking for expected arguments
+set -u
+
+lsof -i tcp:$1

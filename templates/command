@@ -1,0 +1,14 @@
+#!/bin/bash
+set -Eeo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+# Example Required ARG
+USAGE="Usage: command"
+
+[ -z "$1" ] && echo "MISSING FIRST ARGUMENT. $USAGE" && kill -INT $$;
+
+# Disallow unset variables after checking for expected arguments
+set -u
+
+# New Command Here

@@ -1,10 +1,12 @@
-# Install brew
-sudo mkdir /opt
-sudo chown -R `whoami` /opt
-git clone https://github.com/homebrew/homebrew.git /opt/homebrew
+#!/bin/bash
+set -Eeuo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+# Install brew ToDO @BMA
 
 # Make sure it is up to date
-brew tap homebrew/versions
+brew tap caskroom/versions
 brew tap caskroom/cask
 brew update
 
@@ -51,16 +53,21 @@ git clone git@github.com:Lokaltog/powerline-fonts.git
 nvim +PluginInstall +qall
 
 # Symlink sublime for editor
-ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
+# ln -s /Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl /usr/local/bin/subl
 
 # Make the commandhistory repo
 mkdir -p ~/.history_repo
 
+# Make the intellij iws repo
+mkdir -p ~/.iws_repo
+
 # set the default screenshot location
-defaults write com.apple.screencapture location ~/Documents/Screenshots
+SCREENSHOT_LOCATION = ~/Documents/Screenshots
+mkdir $SCREENSHOT_LOCATION
+defaults write com.apple.screencapture location $SCREENSHOT_LOCATION
 
 # Disable gatekeeper
-sudo spctl --master-disable
+# sudo spctl --master-disable
 
 # Breakout further installation
 echo "For ruby development setup run: ./setup/ruby.sh"

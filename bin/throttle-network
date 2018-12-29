@@ -1,0 +1,20 @@
+#!/bin/bash
+set -Eeo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+USAGE="Usage: throttle-network HOST RATE LATENCY"
+[ -z "$1" ] && echo "No hostname provided. $USAGE" && kill -INT $$;
+[ -z "$2" ] && echo "No rate provided. $USAGE" && kill -INT $$;
+[ -z "$3" ] && echo "No latency provided. $USAGE" && kill -INT $$;
+
+# Disallow unset variables after checking for expected arguments
+set -u
+
+HOST_NAME=$1
+RATE=$2
+LATENCY=$3
+
+sudo dnctl pipe 1 config bw $RATE delay $LATENCY
+echo "dummynet out proto tcp from any to $HOST_NAME pipe 1" | sudo pfctl -f -
+sudo pfctl -e

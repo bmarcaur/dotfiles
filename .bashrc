@@ -44,7 +44,7 @@ save_content() {
 configure_prompt() {
 	export GIT_PROMPT_THEME=Solarized
 	export GIT_PROMPT_SHOW_UPSTREAM=1
-	export GIT_PROMPT_SHOW_UNTRACKED_FILES=all
+	export GIT_PROMPT_SHOW_UNTRACKED_FILES=normal
 
 	export GIT_PROMPT_START_USER="_LAST_COMMAND_INDICATOR_ ${BoldMagenta}${PathShort}${ResetColor}"
   export GIT_PROMPT_START_ROOT="_LAST_COMMAND_INDICATOR_ ${GIT_PROMPT_START_USER}"
