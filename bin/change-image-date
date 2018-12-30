@@ -1,0 +1,18 @@
+#!/bin/bash
+set -Eeo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+# Example Required ARG
+USAGE="Usage: change-image-date \"2014:06:08 12:00:00\" DIR"
+
+[ -z "$1" ] && echo "No date provided. $USAGE" && kill -INT $$;
+[ -z "$2" ] && echo "No dir provided. $USAGE" && kill -INT $$;
+
+# Disallow unset variables after checking for expected arguments
+set -u
+
+DATE=$1
+DIR=$2
+
+exiftool -DateTimeOriginal="$DATE" -CreateDate="$DATE" -overwrite_original "$DIR"/*
