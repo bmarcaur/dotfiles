@@ -3,7 +3,7 @@ set -Eeo pipefail
 
 trap "echo ERR trap fired!" ERR
 
-USAGE="Usage: my-git status"
+USAGE="Usage: git-me status"
 
 [ -z "$1" ] && echo "Missing git command. $USAGE" && kill -INT $$;
 
