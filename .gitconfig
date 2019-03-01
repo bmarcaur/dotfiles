@@ -24,7 +24,7 @@
   st = status
 	g = grep --break --heading --line-number
   # Preserve iws files when cleaning out a repo for build purposes
-  cleanrepo = clean -Xf --e *.iws
+  cleanrepo = clean -xdf -e *.iws
 	commend = commit --amend --no-edit
 [color]
   branch = auto
