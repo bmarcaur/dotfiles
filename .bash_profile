@@ -22,7 +22,7 @@ if [ -f ~/.bash_secret ]; then
     source ~/.bash_secret
 fi
 
-export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
 export PATH="$HOME/.ldap_pick:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.dotfiles/bin:$PATH"
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then

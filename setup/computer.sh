@@ -34,6 +34,7 @@ brew install ripgrep
 brew install fd
 brew install p7zip
 brew install jq
+brew install shellcheck
 
 # Install node
 brew install node@8
