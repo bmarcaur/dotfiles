@@ -35,14 +35,15 @@ brew install fd
 brew install p7zip
 brew install jq
 brew install shellcheck
+brew install dos2unix
+# Installs the latest (currently 13)
+brew install openjdk
+brew install openjdk@11
 
 # Install node
 brew install node@8
 
 # Install common cask tools
-brew cask install java
-brew cask install java6
-brew cask install java7
 brew cask install java8
 brew cask install docker
 brew cask install spectacle

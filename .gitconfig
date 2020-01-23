@@ -37,6 +37,7 @@
   pager = less -r
 	excludesfile = /Users/bmarcaurele/.gitignore_global
 	commitGraph = true
+	precomposeUnicode = true
 [push]
   default = current
 [user]
@@ -62,3 +63,5 @@
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
+[http]
+	cookiefile = /Users/bmarcaurele/.gitcookies

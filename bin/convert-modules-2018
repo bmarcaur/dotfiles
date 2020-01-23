@@ -1,0 +1,13 @@
+#!/bin/bash
+set -Eeuo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+# change this to a list of modules
+modules=(mod1 mod2)
+
+for module in ${modules[@]}
+do
+	mv "src/$module/mod.rs" "src/$module.rs"
+  rm -r "src/$module"
+done

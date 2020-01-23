@@ -8,5 +8,6 @@ alias gita='git add -A :/'
 alias gitd='git df'
 alias gitc='git ci -m'
 alias gw='./gradlew'
+alias cg='cargo'
 
 alias vim='nvim'
