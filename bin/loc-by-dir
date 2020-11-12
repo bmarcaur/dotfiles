@@ -1,0 +1,10 @@
+#!/bin/bash
+set -Eeuo pipefail
+
+trap "echo ERR trap fired!" ERR
+
+for module in $(ls -d $1/*)
+do
+  echo $module
+	loc $module
+done

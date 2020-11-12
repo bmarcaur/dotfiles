@@ -3,6 +3,7 @@
   amend = commit --amend
   # Branch
   br = branch
+  brr = for-each-ref --sort="-committerdate" refs/heads --format='%(align:width=65)%(color:green)%(committerdate:short)%(color:reset) %(HEAD) %(color:bold yellow)%(refname:short)%(color:reset)%(end) %(contents:subject)' --color=always
   # Commit
   ci = commit
   # Clone
@@ -57,11 +58,11 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
-[mergetool "sourcetree"]
-	cmd = /Users/bmarcaurele/Library/Caches/com.torusknot.SourceTreeNotMAS/org.sparkle-project.Sparkle/SourceTree 169/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
 [http]
 	cookiefile = /Users/bmarcaurele/.gitcookies
+[pull]
+	ff = only
+[hub]
+  host = github.palantir.build
+[url "git@github.palantir.build:"]
+  insteadOf = https://github.palantir.build/

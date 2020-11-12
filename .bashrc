@@ -1,3 +1,5 @@
+#!/bin/bash
+
 configure_history() {
 	# Force multiline commands to one
 	shopt -s cmdhist

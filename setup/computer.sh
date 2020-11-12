@@ -30,8 +30,18 @@ brew install htop
 brew install git-lfs
 brew install gpg-agent
 brew install stow
-brew install ripgrep
+
+# Rust alternatives
+brew install bat
+brew install dust
+brew install exa
 brew install fd
+brew install procs
+brew install ripgrep
+brew install sd
+brew install tealdeer
+brew install ytop
+
 brew install p7zip
 brew install jq
 brew install shellcheck
