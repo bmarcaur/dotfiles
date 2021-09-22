@@ -22,12 +22,6 @@ Plugin 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
   \ }
 
-" --- Needed for ncm
-Plugin 'ncm2/ncm2'
-Plugin 'roxma/nvim-yarp'
-Plugin 'ncm2/ncm2-bufword'
-Plugin 'ncm2/ncm2-path'
-
 " --- Language specific plugins
 " --- Rust
 Plugin 'rust-lang/rust.vim'
@@ -63,18 +57,6 @@ set nowrap
 autocmd FileType ruby setlocal nocursorline nocursorcolumn norelativenumber
 
 " --- Plugin Specific Settings ---
-
-" --- ncm2/ncm2 ---
-let g:python3_host_prog='/usr/local/bin/python3'
-autocmd BufEnter * call ncm2#enable_for_buffer()
-set completeopt=noinsert,menuone,noselect
-" make it fast
-let ncm2#popup_delay = 5
-let ncm2#complete_length = [[1, 1]]
-" Use new fuzzy based matches
-let g:ncm2#matcher = 'substrfuzzy'
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " --- autozimu/LanguageClient-neovim
 let g:LanguageClient_serverCommands = {

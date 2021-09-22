@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -x /usr/libexec/path_helper ]; then
-	eval `usr/libexec/path_helper -s`
+	eval `/usr/libexec/path_helper -s`
 fi
 
 # include .bashrc if it exists
@@ -41,8 +41,7 @@ fi
 
 export EDITOR='nvim'
 
-export JAVA_1_6_HOME=`/usr/libexec/java_home -v '1.6*'`
-export JAVA_1_8_HOME=`/usr/libexec/java_home -v '1.8*'`
+export JAVA_LATEST='/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home'
 export JAVA_11_HOME='/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home'
-export JAVA_13_HOME='/usr/local/opt/openjdk@13/libexec/openjdk.jdk/Contents/Home'
-export JAVA_HOME=$JAVA_11_HOME
+export JAVA_16_HOME="$JAVA_LATEST"
+export JAVA_HOME=$JAVA_LATEST
