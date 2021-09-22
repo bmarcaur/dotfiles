@@ -7,7 +7,8 @@
 *.last-run
 *.cache
 
-.bash_work
-
 sublime-settings/Color Highlighter/themes/*
 sublime-settings/Package Control.merged-ca-bundle
+
+bin-private
+.bash_private

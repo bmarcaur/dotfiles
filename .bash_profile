@@ -14,9 +14,9 @@ if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
 fi
 
-# include .bash_work if it exists
-if [ -f ~/.bash_work ]; then
-    source ~/.bash_work
+# include .bash_private if it exists
+if [ -f ~/.bash_private ]; then
+    source ~/.bash_private
 fi
 
 # include .bash_secret if it exists
@@ -27,7 +27,7 @@ fi
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
-export PATH="$HOME/.ldap_pick:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.dotfiles/bin:$PATH"
+export PATH="$HOME/.ldap_pick:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.dotfiles/bin:$HOME/.dotfiles/bin-private:$PATH"
 export PATH="/usr/local/opt/python@3.7/bin:$PATH"
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
