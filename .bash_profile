@@ -1,5 +1,12 @@
 #!/bin/bash
 
+export JAVA_LATEST='/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home'
+export JAVA_11_HOME='/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home'
+export JAVA_16_HOME="$JAVA_LATEST"
+export JAVA_HOME=$JAVA_LATEST
+
+export EDITOR='nvim'
+
 if [ -x /usr/libexec/path_helper ]; then
 	eval `/usr/libexec/path_helper -s`
 fi
@@ -38,10 +45,3 @@ fi
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
-
-export EDITOR='nvim'
-
-export JAVA_LATEST='/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home'
-export JAVA_11_HOME='/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home'
-export JAVA_16_HOME="$JAVA_LATEST"
-export JAVA_HOME=$JAVA_LATEST

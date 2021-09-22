@@ -50,11 +50,7 @@ brew install dos2unix
 brew install openjdk
 brew install openjdk@11
 
-# Install node
-brew install node@8
-
 # Install common cask tools
-brew cask install java8
 brew cask install docker
 brew cask install spectacle
 
