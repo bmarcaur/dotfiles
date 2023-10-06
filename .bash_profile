@@ -26,9 +26,19 @@ fi
 
 export BASH_SILENCE_DEPRECATION_WARNING=1
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/bin:$PATH"
-export PATH="$HOME/.ldap_pick:/opt/homebrew/bin:$HOME/.cargo/bin:$HOME/.dotfiles/bin:$HOME/.dotfiles/bin-private:$PATH"
-export PATH="/usr/local/opt/python@3.7/bin:$PATH"
+# https://unix.stackexchange.com/a/124447
+pathupdate() { case ":${PATH:=$1}:" in *:"$1":*) ;; *) PATH="$1:$PATH" ;; esac; }
+
+# Ordered form least to most specific (because this is a stack)
+pathupdate "$HOME/.jenv/bin"
+pathupdate "$HOME/.dotfiles/bin"
+pathupdate "$HOME/.dotfiles/bin-private"
+pathupdate "/Volumes/git/palantir/oss/git-filter-repo"
+pathupdate "/Volumes/git/palantir/oss/git-relevant-history"
+# Allows endpoint engineering to curate certain binary overrides
+pathupdate "/Library/Palantir/bin"
+# intentionally elided due to some issues with GPG version conflicts
+# pathupdate "/opt/homebrew/bin"
 
 if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
     __GIT_PROMPT_DIR=$(brew --prefix)/opt/bash-git-prompt/share
@@ -39,9 +49,16 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
 
-export JAVA_LATEST='/usr/local/opt/openjdk/libexec/openjdk.jdk/Contents/Home'
-export JAVA_11_HOME='/usr/local/opt/openjdk@11/libexec/openjdk.jdk/Contents/Home'
-export JAVA_16_HOME="$JAVA_LATEST"
-export JAVA_HOME=$JAVA_LATEST
+eval "$(direnv hook bash)"
+
+eval "$(mcfly init bash)"
+export MCFLY_FUZZY=2
 
 export EDITOR='nvim'
+export BAT_THEME='Solarized (dark)'
+export PAGER='less'
+export LESS='-RSF --mouse --wheel-lines=3'
+
+# Allows GPG to create TUI's in certain scenarios
+GPG_TTY=$(tty)
+export GPG_TTY

@@ -17,14 +17,6 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'Align'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'airblade/vim-rooter'
-Plugin 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
-
-" --- Language specific plugins
-" --- Rust
-Plugin 'rust-lang/rust.vim'
 
 call vundle#end()
 

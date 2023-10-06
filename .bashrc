@@ -27,20 +27,12 @@ configure_history() {
 }
 
 save_history() {
-  history -a
-  history 1 | cut -c 8- >> $HOME/.history_repo/history.$(date +%Y%m)
-}
-
-save_iws() {
-	for iwsFile in *.iws; do
-    [ -f "$iwsFile" ] || break
-    cat $iwsFile > $HOME/.iws_repo/$iwsFile.$(date +%Y%m%d%H)
-	done
+	history -a
+	history 1 | cut -c 8- >> $HOME/.history_repo/history.$(date +%Y%m)
 }
 
 save_content() {
 	save_history
-	save_iws
 }
 
 configure_prompt() {
@@ -49,7 +41,7 @@ configure_prompt() {
 	export GIT_PROMPT_SHOW_UNTRACKED_FILES=normal
 
 	export GIT_PROMPT_START_USER="_LAST_COMMAND_INDICATOR_ ${BoldMagenta}${PathShort}${ResetColor}"
-  export GIT_PROMPT_START_ROOT="_LAST_COMMAND_INDICATOR_ ${GIT_PROMPT_START_USER}"
+	export GIT_PROMPT_START_ROOT="_LAST_COMMAND_INDICATOR_ ${GIT_PROMPT_START_USER}"
 }
 
 # Load Hist config
@@ -62,3 +54,5 @@ export PROMPT_COMMAND=save_content
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
+
+eval "$(jenv init -)"

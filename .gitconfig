@@ -28,6 +28,10 @@
   cleanrepo = clean -xdf -e .idea -e TEST_FLAVOR -e local_pg_env.properties
 	commend = commit --amend --no-edit
 	ppg = push origin HEAD:refs/for/develop
+[interactive]
+  diffFilter = delta --color-only
+[diff]
+  colorMoved = default
 [color]
   branch = auto
   diff = auto
@@ -35,7 +39,7 @@
   status = auto
 [core]
   editor = nvim
-  pager = less -r
+  pager = delta
 	excludesfile = /Users/bmarcaurele/.gitignore_global
 	commitGraph = true
 	precomposeUnicode = true
@@ -44,6 +48,7 @@
 [user]
 	name = Brandon Marc-Aurele
 	email = bmarcaurele@palantir.com
+	signingkey = 33CB92BE6581A2C2
 [github]
   user = bmarcaur
 [rerere]
@@ -66,3 +71,17 @@
   host = github.palantir.build
 [url "git@github.palantir.build:"]
   insteadOf = https://github.palantir.build/
+[commit]
+	gpgsign = true
+[tag]
+	forceSignAnnotated = true
+	gpgsign = true
+[delta]
+  blame-code-style = syntax
+  blame-palette = "#002b36" "#073642" "#004152" "#005266" "#00627A"
+
+  hyperlinks = true
+  light = false
+  navigate = true
+  syntax-theme = Solarized (dark)
+  theme = Solarized (dark)

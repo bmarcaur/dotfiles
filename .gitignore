@@ -12,3 +12,7 @@ sublime-settings/Package Control.merged-ca-bundle
 
 bin-private
 .bash_private
+
+# My symlinks now include the entire .config/nvim so
+# plugin installs are now dirtying the project
+.config/nvim/bundle/
