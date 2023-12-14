@@ -46,6 +46,7 @@ brew install git-delta
 
 brew install p7zip
 brew install jq
+brew install gron # flatten jq alternative for easier grepping
 brew install shellcheck
 brew install dos2unix
 
