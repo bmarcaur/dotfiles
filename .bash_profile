@@ -57,8 +57,17 @@ export MCFLY_FUZZY=2
 export EDITOR='nvim'
 export BAT_THEME='Solarized (dark)'
 export PAGER='less'
-export LESS='-RSF --mouse --wheel-lines=3'
+export LESS='-RSFX --mouse --wheel-lines=3'
 
 # Allows GPG to create TUI's in certain scenarios
 GPG_TTY=$(tty)
 export GPG_TTY
+. "$HOME/.cargo/env"
+
+# Reminders 
+echo "New git commands:"
+echo "    wdiff   - subline diffing"
+echo "    find    - find by regex in history"
+echo "    staash  - stash plus untracked"
+echo "    shame   - historical blame, tracks moves and original author"
+echo "    lazygit - TUI for managing git"

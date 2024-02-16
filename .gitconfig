@@ -17,17 +17,24 @@
   # List git aliases
   la = "!git config -l | grep alias | cut -c 7-"
   # List date, user
-  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=short
+  ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]%Creset" --decorate --date=short -n 20
   # List message, user, files
-  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)(%cr)%Creset" --decorate --numstat
+  ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)(%cr)%Creset" --decorate --numstat -n 5
   # List message, user
-  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)(%cr)%Creset" --decorate
+  ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(green)(%cr)%Creset" --decorate -n 20
   st = status
 	g = grep --break --heading --line-number
   # Preserve iws files when cleaning out a repo for build purposes
   cleanrepo = clean -xdf -e .idea -e TEST_FLAVOR -e local_pg_env.properties
 	commend = commit --amend --no-edit
-	ppg = push origin HEAD:refs/for/develop
+  # Shows a git blame back to the origin it was added
+  shame = blame -w -C -C -C
+  # how stash probably should have worked
+  staash = stash --all
+  # find by regex in logs, good for finding old tokens that have been removed
+  find = log -p -S
+  # useful for better diff reading when subline matters
+  wdiff = diff --word-diff
 [interactive]
   diffFilter = delta --color-only
 [diff]
@@ -43,6 +50,8 @@
 	excludesfile = /Users/bmarcaurele/.gitignore_global
 	commitGraph = true
 	precomposeUnicode = true
+  untrackedcache = true
+  fsmonitor = true
 [push]
   default = current
 [user]
@@ -85,3 +94,7 @@
   navigate = true
   syntax-theme = Solarized (dark)
   theme = Solarized (dark)
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate

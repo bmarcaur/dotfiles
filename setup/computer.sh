@@ -33,7 +33,7 @@ brew install stow
 # Rust alternatives
 brew install bat
 brew install dust
-brew install exa
+brew install eza
 brew install fd
 brew install procs
 brew install ripgrep
