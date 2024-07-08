@@ -25,7 +25,7 @@
   st = status
 	g = grep --break --heading --line-number
   # Preserve iws files when cleaning out a repo for build purposes
-  cleanrepo = clean -xdf -e .idea -e TEST_FLAVOR -e local_pg_env.properties
+  cleanrepo = clean -xdf -e .java-version -e .idea -e TEST_FLAVOR -e local_pg_env.properties
 	commend = commit --amend --no-edit
   # Shows a git blame back to the origin it was added
   shame = blame -w -C -C -C
