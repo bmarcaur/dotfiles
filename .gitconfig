@@ -35,6 +35,8 @@
   find = log -p -S
   # useful for better diff reading when subline matters
   wdiff = diff --word-diff
+  # reflog scoped to a single file
+  flog = git rev-list --all
 [interactive]
   diffFilter = delta --color-only
 [diff]
@@ -67,11 +69,6 @@
 [grep]
 	extendRegexp = true
 	lineNumber = true
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	required = true
-	process = git-lfs filter-process
 [http]
 	cookiefile = /Users/bmarcaurele/.gitcookies
 [pull]
@@ -98,3 +95,10 @@
 	ui = auto
 [branch]
 	sort = -committerdate
+[rebase]
+	updateRefs = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
