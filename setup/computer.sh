@@ -11,6 +11,7 @@ trap "echo ERR trap fired!" ERR
 brew update
 
 # Install autocomplete
+brew install bash
 brew install bash-completion
 brew install bash-git-prompt
 

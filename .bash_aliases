@@ -25,3 +25,8 @@ alias sloc='scc'
 alias ps='procs'
 alias du='dust'
 alias find='fd'
+alias bash='/opt/homebrew/bin/bash'
+
+nb() {
+    git checkout -b "bmarcaurele/$1"
+}
