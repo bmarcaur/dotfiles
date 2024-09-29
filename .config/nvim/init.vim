@@ -9,14 +9,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 " --- Making Vim Look Good ---
 Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'scrooloose/syntastic'
-
-" --- Vim as a programmer's text editor
-Plugin 'kien/ctrlp.vim'
-Plugin 'Align'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'airblade/vim-rooter'
 
 call vundle#end()
 
@@ -30,12 +22,8 @@ set showcmd
 set incsearch
 set hlsearch
 
-syntax on
+syntax enable
 set mouse=a
-
-" --- Personal Settings ---
-" associate *.map with ruby filetype
-au BufRead,BufNewFile *.map set filetype=ruby
 
 set clipboard=unnamed
 set scrolljump=10
@@ -46,50 +34,14 @@ set cursorcolumn
 set relativenumber
 set nowrap
 
-autocmd FileType ruby setlocal nocursorline nocursorcolumn norelativenumber
-
 " --- Plugin Specific Settings ---
-
-" --- autozimu/LanguageClient-neovim
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ }
-let g:LanguageClient_autoStart = 1
-
 " --- altercation/vim-colors-solarized ---
+set notermguicolors
 set background=dark
 
 colorscheme solarized
 
-" --- bling/vim-airline ---
-" Always show statusbar
-set laststatus=2
-
-" Show ligature fonts
-let g:airline_powerline_fonts = 1
-
-" Show PASTE if in paste mode
-let g:airline_detect_paste=1
-
-" Show airline for tabs too
-let g:airline#extensions#tabline#enabled = 1
-
-" --- scrooloose/syntastic ---
-let g:syntastic_error_symbol = '✘'
-let g:syntastic_warning_symbol = "▲"
-augroup mySyntastic
-	au!
-	au FileType tex let b:syntastic_mode = "passive"
-augroup end
-
 " --- override the system to use ripgrep
 set grepprg=rg\ --color=never
-
-" --- kien/ctrlp.vim
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_user_command = 'rg %s --files --color=never --hidden --glob ""'
-let g:ctrlp_use_caching = 0
-let g:ctrlp_show_hidden = 1
 
 set wildignore+=*/.git/*,*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
