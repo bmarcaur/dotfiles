@@ -36,7 +36,7 @@
   # useful for better diff reading when subline matters
   wdiff = diff --word-diff
   # reflog scoped to a single file
-  flog = git rev-list --all
+  flog = rev-list --all
 [interactive]
   diffFilter = delta --color-only
 [diff]
