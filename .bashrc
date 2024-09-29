@@ -21,18 +21,10 @@ configure_history() {
 
 	# Ignore whitespace and repeated commands
 	export HISTCONTROL=ignoreboth
-
-	# Append to the history
-	shopt -s histappend
 }
 
 save_history() {
-	history -a
 	history 1 | cut -c 8- >> $HOME/.history_repo/history.$(date +%Y%m)
-}
-
-save_content() {
-	save_history
 }
 
 configure_prompt() {
@@ -50,7 +42,7 @@ configure_history
 # Load the prompt configuration
 configure_prompt
 
-export PROMPT_COMMAND=save_content
+export PROMPT_COMMAND="save_history; $PROMPT_COMMAND"
 
 # Make bash check its window size after a process completes
 shopt -s checkwinsize

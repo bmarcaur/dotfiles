@@ -49,8 +49,6 @@ if [ -f $(brew --prefix)/etc/bash_completion ]; then
 	. $(brew --prefix)/etc/bash_completion
 fi
 
-eval "$(direnv hook bash)"
-
 eval "$(mcfly init bash)"
 export MCFLY_FUZZY=2
 
@@ -62,7 +60,6 @@ export LESS='-RSFX --mouse --wheel-lines=3'
 # Allows GPG to create TUI's in certain scenarios
 GPG_TTY=$(tty)
 export GPG_TTY
-. "$HOME/.cargo/env"
 
 # Reminders 
 echo "New git commands:"
